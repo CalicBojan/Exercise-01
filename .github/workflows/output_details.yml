@@ -1,0 +1,17 @@
+name: Output information
+on:
+  issues:
+    types: [opened, edited]
+jobs:
+  add assignees:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Issues Helper
+        uses: actions-cool/issues-helper@v3.6.0
+        with:
+          actions: 'add-assignees'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          assignees: 'xxx' or 'xx1,xx2'
+          random-to: 1
+
